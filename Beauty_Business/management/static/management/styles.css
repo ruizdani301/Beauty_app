@@ -1,0 +1,140 @@
+* {
+    font-family: 'Franklin Gothic Medium';
+}
+
+body {
+    margin: 0;
+}
+
+h1 {
+    text-align: center;
+}
+
+/* Navbar styles */
+
+#navegador > ul{
+    list-style-type: none;
+    text-align: center;
+    background-color: #64f5ad;
+    padding: 15px;
+}
+
+#navegador li{
+    display: inline;
+    margin: 0 100px 0 0;
+}
+
+#navegador li a{
+   text-decoration: none;
+   color: black;
+}
+
+#navegador li a:hover{
+    color: rgb(179, 179, 179);
+    font-size: large;
+}
+
+#navegador li a{
+    transition: font-size 0.1s linear 0.1s;
+}
+
+/* form styles */
+
+#sales_form {
+    /* Centrar el formulario en la página */
+    margin: 50px auto;
+    width: 790px;
+    /* Esquema del formulario */
+    padding: 30px;
+    border: 1px solid #CCC;
+    border-radius: 1em;
+}
+  
+#sales_form ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+  
+#sales_form li{
+    margin: 0 10px 0 0;
+    margin-top: 1em;
+    display: inline;
+}
+
+#sales_form label{
+    margin-right: 10px;
+}
+
+#sales_form select,
+input {
+    border-radius: 5px;
+    padding: 10px;
+}
+
+#sales_form button {
+    padding: 10px;
+    border-radius: 10px;
+    margin-left: 15px;
+}
+
+#price_input {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* table style */
+
+table {
+    text-align: center;
+    width: 50%;
+    border-radius: 10px;
+    margin: 0 auto;
+}
+
+th {
+    background-color: #36c;
+    color: #fff;
+    text-align: center;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+td {
+    text-align: center;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+/* Purchases section */
+#register {
+    display: flex;
+    justify-content: center;
+}
+
+#mark_register {
+    border: solid 1px black;
+    border-radius: 10px;
+    margin: auto;
+    width: 200px;
+    padding: 5px;
+}
+
+#mark_register h3 {
+    background-color: #64f5ad;
+    border-radius: 5px;
+    text-align: center;
+    padding: 5px;
+}
+
+#form_register {
+    text-align: center;
+}
+
+#form_register button, input {
+    padding: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}

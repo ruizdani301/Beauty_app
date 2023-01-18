@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beauty Business</title>
+    {% load static %}
+    <link rel="stylesheet" href= "{% static 'management/styles.css' %}">
+</head>
+<body>
+    <h1>Panel de Compras</h1>
+    <nav id="navegador">
+        <ul>
+            <li><a href="http://127.0.0.1:8000/management/">Registro de Ventas</a></li>
+            <li><a href="http://127.0.0.1:8000/management/purchases/">Registro de Compras</a></li>
+            <li><a href="estadisticas.html">Estadísticas</a></li>
+            <li><a href="inventario.html">Inventario</a></li>
+        </ul>
+    </nav>
+    
+    <div id="register">
+        <div id="mark_register">
+            <h3>Registrar en Stock</h3>
+            <form action="http://127.0.0.1:8000/management/stock_register/" method="post" id="form_register">
+                {% csrf_token%}
+                <br>
+                <label for="">Factura</label>
+                <select name="factura" id="product_list" onchange="ShowSelected()">
+                    {% for purchase  in all_purchases %}
+                    <option value="{{ purchase.purchase_id }}"> {{ purchase.factura }}</option>
+                    {% endfor %}
+                </select>
+                <br><br><br>
+                <label for="">Producto</label>
+                <select name="product" id="product_list" onchange="ShowSelected()">
+                    {% for product  in all_products %}
+                    <option value="{{ product.product_id }}"> {{ product.name_product }}</option>
+                    {% endfor %}
+                </select>
+                <br><br><br>
+
+                <label for="">Precio de compra</label>
+                <input type="number" name="purchase_price" min="0" required>
+
+                <br><br><br>
+
+                <label for="">Precio de venta</label>
+                <input type="number" name="sales_price" min="0" required>
+
+                <br><br><br>
+
+                <label for="">Cantidad</label>
+                <input type="number" name="amount" min="0" required>
+
+                <button type="submit">Registrar en Stock</button>
+            </form>
+        </div>
+
+        <div id="mark_register">
+            <h3>Registrar Producto</h3>
+            <form action="http://127.0.0.1:8000/management/product_register/" method="post" id="form_register">
+                {% csrf_token%}
+                <label for="">Nombre Producto</label>
+                <input type="text" name="name_product" maxlength="30" required>
+                <br><br>
+                <label for="">Marca</label>
+                <select name="mark" id="product_list" onchange="ShowSelected()">
+                    {% for mark  in all_marks %}
+                    <option value="{{ mark.mark_id }}"> {{ mark.name_mark }}</option>
+                    {% endfor %}
+                </select>
+                <br><br><br>
+                <label for="">Categoria</label>
+                <select name="category" id="product_list" onchange="ShowSelected()">
+                    {% for category  in all_categories %}
+                    <option value="{{ category.category_id }}"> {{ category.name_category }}</option>
+                    {% endfor %}
+                </select>
+                <br><br>
+                <button type="submit">Registrar Producto</button>
+            </form>
+        </div>
+    </div>
+
+    <br><br>
+
+    <div id="register">
+        <div id="mark_register">
+            <h3>Registrar Marca</h3>
+            <form action="http://127.0.0.1:8000/management/mark_register/" method="post" id="form_register">
+                {% csrf_token%}
+                <label for="">Nombre de la marca</label>
+                <input type="text" name="new_mark" maxlength="30" required>
+                <button type="submit">Registrar Marca</button>
+            </form>
+        </div>
+
+        <div id="mark_register">
+            <h3>Registrar Categoria</h3>
+            <form action="http://127.0.0.1:8000/management/category_register/" method="post" id="form_register">
+                {% csrf_token%}
+                <label for="">Nombre Categoria</label>
+                <input type="text" name="new_category" maxlength="30" required>
+                <button type="submit">Registrar Categoria</button>
+            </form>
+        </div>
+
+        <div id="mark_register">
+            <h3>Registrar Proveedor</h3>
+            <form action="http://127.0.0.1:8000/management/provider_register/" method="post" id="form_register">
+                {% csrf_token%}
+                <label for="">Nombre Proveedor</label>
+                <input type="text" name="name_provider" maxlength="30" required>
+                <label for="">Telefono</label>
+                <input type="text" name="phone" maxlength="30" required>
+                <label for="">Direccion</label>
+                <input type="text" name="addres" maxlength="30" required>
+                <button type="submit">Registrar Proveedor</button>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>

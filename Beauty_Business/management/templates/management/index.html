@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beauty Business</title>
+    {% load static %}
+    <link rel="stylesheet" href= "{% static 'management/styles.css' %}">
+</head>
+<body>
+    <h1>Panel de Ventas</h1>
+    <nav id="navegador">
+        <ul>
+            <li><a href="ventas.html">Registro de Ventas</a></li>
+            <li><a href="http://127.0.0.1:8000/management/purchases/">Registro de Compras</a></li>
+            <li><a href="estadisticas.html">Estadísticas</a></li>
+            <li><a href="inventario.html">Inventario</a></li>
+        </ul>
+    </nav>
+    <form action="http://127.0.0.1:8000/management/sales_record/" method="post" id="sales_form">
+        {% csrf_token%}
+        {% if latest_Products %}
+        <ul>
+            <li>
+                <label for="product_list">Productos: </label>
+                <select name="product_sale" id="product_list" onchange="ShowSelected()">
+                    {% for Product  in latest_Products %}
+                    <option value="{{ Product.product_id }}"> {{ Product.product_id }}   : {{ Product.name_product }}</option>
+                    {% endfor %}
+                </select></li>
+            <li>
+                <label for="">Cantidad: </label>
+                <input type="number" name="amount" min="1" required>
+            </li>
+            <li>
+                <label for="">Precio: </label>
+                <input type="number" name="price" min="1" required>
+            </li>
+        </ul>
+        <ul id="price_input">
+            <li>
+                <button type="submit">Registrar Venta</button>
+            </li>
+        </ul>
+    {% endif %}
+    </form>
+
+    <div style="margin: 0 auto;">
+    {% if products_available %}
+    <table>
+        <tr>
+            <th>ID prod.</th>
+            <th>Nombre del producto</th>
+            <th>U. disponibles</th>
+            <th>Precio</th>
+        </tr>
+        {% for available in products_available %}
+        <tr>
+            <td> {{ available.product_id_id }} </td>
+            <td> {{ available.nombre }} </td>
+            <td> {{ available.total }} </td>
+            <td> {{ available.price }} </td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
+    </div>
+
+    {% if Bandera %}
+        <h3 style="text-align: center">El registro fue exitoso</h3>
+    {% endif %}
+
+    <br><br><br>
+</body>
+</html>
