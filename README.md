@@ -13,12 +13,6 @@ Hasta el momento se ha realilzado las APIs y creación de la base de datos para 
 
 ### Proyecto en construcción
 
-Tareas:
-
-* agregar la venta al recorrido de los stocks -> OK
-* terminar manejo de errores en el html y jinja -> x
-* agregar nro de factura -> x
-* limitar precios de ventas -> x
 
 Herramientas utilizadas:
 Django
@@ -26,6 +20,5 @@ Python
 Postgres
 
 Equipo:
-Edgar Santander     Data analytics
 Diego Jojoa         fullstack
 Daniel ruiz         Backend
