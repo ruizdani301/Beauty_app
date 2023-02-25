@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    
 ]
 
 MIDDLEWARE = [
@@ -85,8 +86,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'bb_products',
-        'USER': 'edgar',
-        'PASSWORD': 'edgar',
+        'USER': 'daniel',
+        'PASSWORD': 'daniel1234',
         'HOST': 'localhost',
         'PORT': '5432'
     }
